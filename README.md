@@ -1,6 +1,6 @@
 # **NiteLife**
 
-![NiteLife Logo](https://user-images.githubusercontent.com/128172134/226118557-019c1825-e513-4fc6-9950-26e3ca4a15d1.png)
+<img width="277" alt="nitelife" src="https://user-images.githubusercontent.com/128172134/226119433-ba17f96d-8a28-4de2-bc5a-c92d33406b85.PNG">
 
 This repo will be for the development of a bar app. There are infinite directions that this could go but to start off here are some base hopes/ideas for base functionality
 
