@@ -1,6 +1,6 @@
 # **NiteLife**
 
-<img width="277" alt="nitelife" src="https://user-images.githubusercontent.com/128172134/226119433-ba17f96d-8a28-4de2-bc5a-c92d33406b85.PNG">
+<img width="308" alt="nitelifeend" src="https://user-images.githubusercontent.com/128172134/226120893-0f950833-fc2c-42ec-a1df-d06f1454b05b.PNG">
 
 This repo will be for the development of a bar app. There are infinite directions that this could go but to start off here are some base hopes/ideas for base functionality
 
