@@ -18,7 +18,7 @@ This repo will be for the development of a bar app. There are infinite direction
         + `age-range`: avg age of people in attendance
         + `rage-gauge`: how intoxicated are people or how crazy is it.
         + `publicRating` vs `NiteLifeRating`: overall rating system for each bar, possible app generated rating system that takes into account a person's personal likes (*what we think you may like*)
-        + `drink_deals`: section for promotions or drink deals ("*#lationight!, #bogoirishcarbombs!, etc*")
+        + `drink-deals`: section for promotions or drink deals ("*#lationight!, #bogoirishcarbombs!, etc*")
     + Each bar/venue will have a `promoter` or `performer` account linked to it for who is performing at that time.
         + they can have an individual rating system as well
     + possible pictures or review section where users can leave a review
