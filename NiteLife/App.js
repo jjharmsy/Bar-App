@@ -20,7 +20,7 @@ export default function App() {
         <TextInput
           style={styles.TextInput}
           placeholder="Email:"
-          placeholderTextColor="#003f5c"
+          placeholderTextColor="#fff"
           onChangeText={(email) => setEmail(email)}
         /> 
       </View> 
@@ -28,7 +28,7 @@ export default function App() {
         <TextInput
           style={styles.TextInput}
           placeholder="Password:"
-          placeholderTextColor="#003f5c"
+          placeholderTextColor="#fff"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         /> 
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   inputView: {
-    backgroundColor: "#FFC0CB",
+    backgroundColor: "#6440b3",
+    textDecorationColor: "#fff", 
     borderRadius: 30,
     width: "70%",
     height: 45,
@@ -77,6 +78,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#FF1493",
+    backgroundColor: "#6e34eb",
   },
 });
