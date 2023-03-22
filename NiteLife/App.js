@@ -8,38 +8,48 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
+
+
+
 export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require("./assets/logo.png")} /> 
-      <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email:"
-          placeholderTextColor="#fff"
-          onChangeText={(email) => setEmail(email)}
-        /> 
-      </View> 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password:"
-          placeholderTextColor="#fff"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        /> 
-      </View> 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
-      </TouchableOpacity> 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text> 
-      </TouchableOpacity> 
-    </View> 
+
+    <SafeAreaView style={styles.safe_container}>
+      <ScrollView styles={styles.scroll_view}>
+        <View style={styles.container}>
+          <Image style={styles.image} source={require("./assets/logo.png")} />
+          <StatusBar style="auto" />
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Email:"
+              placeholderTextColor="#fff"
+              onChangeText={(email) => setEmail(email)}
+            />
+          </View>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Password:"
+              placeholderTextColor="#fff"
+              secureTextEntry={true}
+              onChangeText={(password) => setPassword(password)}
+            />
+          </View>
+          <TouchableOpacity>
+            <Text style={styles.forgot_button}>Forgot Password?</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.loginBtn}>
+            <Text style={styles.loginText}>LOGIN</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView> 
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
@@ -49,12 +59,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  safe_container: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
   image: {
     marginBottom: 40,
   },
   inputView: {
     backgroundColor: "#6440b0",
-    textDecorationColor: "#fff", 
+    textDecorationColor: "#fff",
     borderRadius: 30,
     width: "70%",
     height: 45,
@@ -79,5 +93,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 40,
     backgroundColor: "#6e34eb",
+  },
+  scroll_view: {
+    backgroundColor: 'blue',
+    marginHorizontal: 20,
   },
 });
