@@ -10,6 +10,10 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 
 
@@ -18,9 +22,10 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
-
-    <SafeAreaView style={styles.safe_container}>
-      <ScrollView styles={styles.scroll_view}>
+    <KeyboardAvoidingView
+      behavior={Platform.os == 'ios' ? 'padding' : 'height'}
+      style={styles.other_container}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <Image style={styles.image} source={require("./assets/logo.png")} />
           <StatusBar style="auto" />
@@ -48,8 +53,8 @@ export default function App() {
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView> 
-    </SafeAreaView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  safe_container: {
+  other_container: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
   },
