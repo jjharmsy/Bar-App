@@ -18,6 +18,22 @@ import {
 import AsyncStorage from 'react-native';
 
 import Loader from './Components/Loader';
+import { ApolloClient, useQuery, InMemoryCache, gql } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://localhost:3000/graphql',
+  cache: new InMemoryCache(),
+});
+
+const VERIFY_LOGIN = gql`
+query verify_login($username: String!, $password: String!) {
+  login(username: $username, password: $password) {
+    username
+    password
+    status
+  }
+}
+`;
 
 const LoginScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
@@ -39,35 +55,26 @@ const LoginScreen = ({navigation}) => {
     }
     setLoading(true);
     let dataToSend = {email: userEmail, password: userPassword};
-    let formBody = [];
-    for (let key in dataToSend) {
-      let encodedKey = encodeURIComponent(key);
-      let encodedValue = encodeURIComponent(dataToSend[key]);
-      formBody.push(encodedKey + '=' + encodedValue);
-    }
-    formBody = formBody.join('&');
+    // let formBody = [];
+    // for (let key in dataToSend) {
+    //   let encodedKey = encodeURIComponent(key);
+    //   let encodedValue = encodeURIComponent(dataToSend[key]);
+    //   formBody.push(encodedKey + '=' + encodedValue);
+    // }
+    // formBody = formBody.join('&');
 
-    fetch('http://localhost:3000/api/user/login', {
-      method: 'POST',
-      body: formBody,
-      headers: {
-        //Header Defination
-        'Content-Type':
-        'application/x-www-form-urlencoded;charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((responseJson) => {
+    responseBody = useQuery(VERIFY_LOGIN, { variables: {userEmail, userPassword}})
+      .then((responseBody) => {
         //Hide Loader
         setLoading(false);
-        console.log(responseJson);
+        console.log(responseBody);
         // If server response message same as Data Matched
-        if (responseJson.status === 'success') {
-          AsyncStorage.setItem('user_id', responseJson.data.email);
-          console.log(responseJson.data.email);
+        if (responseBody.status === 'success') {
+          AsyncStorage.setItem('user_id', responseBody.username);
+          console.log(responseBody.username);
           navigation.replace('DrawerNavigationRoutes');
         } else {
-          setErrortext(responseJson.msg);
+          setErrortext(responseJson.status);
           console.log('Please check your email id or password');
         }
       })
