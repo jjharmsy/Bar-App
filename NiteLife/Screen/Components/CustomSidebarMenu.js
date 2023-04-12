@@ -11,7 +11,7 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import AsyncStorage from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CustomSidebarMenu = (props) => {
   return (
